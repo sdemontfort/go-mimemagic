@@ -1,7 +1,7 @@
 package mimemagic
 
 import "bytes"
-//import "fmt"
+import "fmt"
 
 type section struct {
 	Name string
@@ -14,8 +14,10 @@ type matcher struct {
 }
 
 func Match(guess string, dat []byte) string {
-	if s := smap[guess]; s!=nil && matchSection(s,dat) { return s.Name }
+	fmt.Print(len(sarr))
+	// if s := smap[guess]; s!=nil && matchSection(s,dat) { return s.Name }
 	for i:=0; i<len(sarr); i++ {
+		fmt.Printf(sarr[i].Name)
 		if matchSection(&sarr[i], dat) { return sarr[i].Name }
 	}
 	return ""
