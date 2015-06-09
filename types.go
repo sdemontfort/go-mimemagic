@@ -14,10 +14,8 @@ type matcher struct {
 }
 
 func Match(guess string, dat []byte) string {
-	fmt.Print(len(sarr))
-	// if s := smap[guess]; s!=nil && matchSection(s,dat) { return s.Name }
+	if s := smap[guess]; s!=nil && matchSection(s,dat) { return s.Name }
 	for i:=0; i<len(sarr); i++ {
-		fmt.Printf(sarr[i].Name)
 		if matchSection(&sarr[i], dat) { return sarr[i].Name }
 	}
 	return ""
