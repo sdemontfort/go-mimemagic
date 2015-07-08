@@ -8,11 +8,13 @@ import "os"
 
 func main() {
 	b := make([]byte, 1024)
-	for _,fn := range os.Args {
-		f,e := os.Open(fn)
-		if e!=nil { panic(e) }
+	for _, fn := range os.Args {
+		f, e := os.Open(fn)
+		if e != nil {
+			panic(e)
+		}
 		f.Read(b)
-		fmt.Printf("%-30s %s\n", mimemagic.Match("",b),fn)
+		fmt.Printf("%-30s %s\n", mimemagic.Match("", b), fn)
 		f.Close()
 	}
 }
